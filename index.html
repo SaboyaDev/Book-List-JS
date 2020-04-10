@@ -5,62 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-      integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY="
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
 
-    <style>
-      .success,
-      .error {
-        color: white;
-        padding: 5px;
-        margin: 5px 0 15px 0;
-      }
-
-      .success {
-        background: green;
-      }
-
-      .error {
-        background: red;
-      }
-    </style>
+    <link rel="stylesheet" href="stylesheet/styleshee.css" />
 
     <title>Book List</title>
   </head>
   <body>
     <div class="container">
-      <h1>Add Book</h1>
-      <form id="book-form">
-        <div>
-          <label for="title">title</label>
-          <input type="text" id="title" class="u-full-width" />
+      <div class="row">
+        <div class="col">
+          <div class="mt-5 p-4 card">
+            <h1 class="mx-auto">My FavBooks</h1>
+            <form id="book-form" class="mb-4">
+              <div class="form-group">
+                <label for="title">Title:</label>
+                <input
+                  type="text"
+                  id="title"
+                  class="u-full-width form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="author">Author:</label>
+                <input
+                  type="text"
+                  id="author"
+                  class="u-full-width form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="isbn">ISBN#:</label>
+                <input
+                  type="text"
+                  id="isbn"
+                  class="mb-4 u-full-width form-control"
+                />
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="u-full-width btn btn-success"
+                />
+              </div>
+            </form>
+            <table class="u-full-width table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Authod</th>
+                  <th scope="col">ISBN</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="book-list"></tbody>
+            </table>
+          </div>
         </div>
-        <div>
-          <label for="author">author</label>
-          <input type="text" id="author" class="u-full-width" />
-        </div>
-        <div>
-          <label for="isbn">ISBN#</label>
-          <input type="text" id="isbn" class="u-full-width" />
-        </div>
-        <div>
-          <input type="submit" value="Submit" class="u-full-width" />
-        </div>
-      </form>
-      <table class="u-full-width">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Authod</th>
-            <th>ISBN</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="book-list"></tbody>
-      </table>
+      </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/es5/app.js"></script>
   </body>
 </html>
