@@ -59,6 +59,55 @@ class UI {
   }
 }
 
+// Local Storage Class
+class Store {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+  }
+
+  static displayBooks() {
+    const books = Store.getBooks();
+
+    books.forEach((book) => {
+      const ui = new UI();
+      // Add Book to UI
+      ui.addBookToList(book);
+    });
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks();
+
+    books.push(book);
+
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(target) {
+    if (target.className === 'delete') {
+      const books = Store.getBooks();
+      const isbn = target.parentElement.previousElementSibling.textContent;
+
+      books.forEach((book, index) => {
+        if (book.isbn === isbn) {
+          books.splice(index, 1);
+        }
+      });
+
+      localStorage.setItem('books', JSON.stringify(books));
+    }
+  }
+}
+
+// DOM Load Event
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
+
 // Submit Event Listeners
 document.getElementById('book-form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -78,10 +127,14 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     // Error Message
     ui.alertMsg('All Fields Must Be Filled In!', 'danger');
   } else {
-    // Successful Message
-    ui.alertMsg('Book was added - check it out!', 'success');
     // Add Book To List
     ui.addBookToList(book);
+
+    // Add to Local Storage
+    Store.addBook(book);
+
+    // Successful Message
+    ui.alertMsg('Book was added - check it out!', 'success');
     // Clear Fields
     ui.clearFields();
   }
@@ -92,5 +145,9 @@ document.getElementById('book-list').addEventListener('click', (e) => {
   e.preventDefault();
   let ui = new UI();
   ui.deleteBook(e.target);
+
+  // Remove from Local Storage
+  Store.removeBook(e.target);
+
   ui.alertMsg('Book was removed successfully!', 'success');
 });
