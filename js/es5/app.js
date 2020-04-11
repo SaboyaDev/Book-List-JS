@@ -20,7 +20,7 @@ UI.prototype.addBookToList = function (book) {
 		<td class='td'>${book.title}</td>
 		<td class='td'>${book.author}</td>
 		<td class='td'>${book.isbn}</td>
-		<td><a href='#' class='delete'>X</a></td>
+		<td><a href='#' class='delete'><i class="fa fa-times text-success" aria-hidden="true"></i></a></td>
 	`;
   list.appendChild(row);
 };
