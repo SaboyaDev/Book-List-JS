@@ -11,6 +11,14 @@ h1 {
   font-family: 'Exo', sans-serif;
 }
 
+#myBtn {
+  text-align: center;
+}
+
+#myBtn input {
+  width: 15em;
+}
+
 .form-group label {
   font-family: 'Montserrat', sans-serif;
 }
