@@ -3,3 +3,11 @@
 ## Project Section 6: OOP Book List Project
 
 ### Project Link: https://joseluissaboya.github.io/bookList/
+
+A simple UI Application, with a goal to understand prototype constructors and classes.
+
+We created two versions of the project, one was in es5 and then I converted the basecode to es6.
+
+Extra feature:
+
+- Local Storage Implementation
