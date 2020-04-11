@@ -7,8 +7,16 @@ body {
   background-color: rgb(19, 18, 18);
 }
 
+.alert {
+  display: none;
+}
+
 h1 {
   font-family: 'Exo', sans-serif;
+}
+
+.fav {
+  color: #28a745;
 }
 
 #myBtn {
@@ -27,17 +35,9 @@ table {
   text-align: center;
 }
 
-.success,
-.error {
-  color: white;
-  padding: 5px;
-  margin: 5px 0 15px 0;
-}
-
-.success {
-  background: green;
-}
-
-.error {
-  background: red;
+.delete {
+  font-family: 'Exo', sans-serif;
+  color: #28a745;
+  font-size: larger;
+  font-weight: bolder;
 }

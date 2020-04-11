@@ -20,7 +20,7 @@ UI.prototype.addBookToList = function (book) {
 		<td class='td'>${book.title}</td>
 		<td class='td'>${book.author}</td>
 		<td class='td'>${book.isbn}</td>
-		<td><a href='#' class='delete'><i class="fa fa-times text-success" aria-hidden="true"></i></a></td>
+		<td><a href='#' class='delete'>x</a></td>
 	`;
   list.appendChild(row);
 };
@@ -32,7 +32,25 @@ UI.prototype.clearFields = function () {
   document.getElementById('isbn').value = '';
 };
 
-// Event Listeners
+UI.prototype.deleteBook = function (target) {
+  if (target.className === 'delete') {
+    target.parentElement.parentElement.remove();
+  }
+};
+
+UI.prototype.alertMsg = function (msg, color) {
+  let notification = document.querySelector('.alert');
+  notification.classList.add(`alert-${color}`);
+  notification.appendChild(document.createTextNode(msg));
+  notification.style.display = 'block';
+  setTimeout(function () {
+    notification.classList.remove(`alert-${color}`);
+    notification.style.display = 'none';
+    notification.removeChild(notification.firstChild);
+  }, 2000);
+};
+
+// Submit Event Listeners
 document.getElementById('book-form').addEventListener('submit', function (e) {
   e.preventDefault();
   // Get Form Value
@@ -46,9 +64,24 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
   // Instantiate UI
   let ui = new UI();
 
-  // Add Book To List
-  ui.addBookToList(book);
+  // Validate
+  if (title === '' || author === '' || isbn === '') {
+    // Error Message
+    ui.alertMsg('All Fields Must Be Filled In!', 'danger');
+  } else {
+    // Successful Message
+    ui.alertMsg('Book was added - check it out!', 'success');
+    // Add Book To List
+    ui.addBookToList(book);
+    // Clear Fields
+    ui.clearFields();
+  }
+});
 
-  // Clear Fields
-  ui.clearFields();
+// Delete Book Elment
+document.getElementById('book-list').addEventListener('click', function (e) {
+  e.preventDefault();
+  let ui = new UI();
+  ui.deleteBook(e.target);
+  ui.alertMsg('Book was removed successfully!', 'success');
 });
