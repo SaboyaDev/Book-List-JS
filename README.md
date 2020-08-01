@@ -2,7 +2,7 @@
 
 ## Project Section 6: OOP Book List Project
 
-### Project Link: https://joseluissaboya.github.io/bookList/
+### Project Link: https://saboyadev.github.io/bookList/
 
 A simple UI Application, with a goal to understand prototype constructors and classes.
 
