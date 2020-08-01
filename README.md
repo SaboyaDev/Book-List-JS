@@ -2,7 +2,7 @@
 
 ## Project Section 6: OOP Book List Project
 
-### Project Link: https://saboyadev.github.io/bookList/
+### Project Link: https://saboyadev.github.io/Traversy-Media-Udemy-Course-Book-List-JS/. 
 
 A simple UI Application, with a goal to understand prototype constructors and classes.
 
