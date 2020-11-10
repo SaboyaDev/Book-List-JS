@@ -1,8 +1,8 @@
-# Traversy Media Udemy Course - Modern Javascript From The Begining
+# OOP Book List Project
 
-## Project Section 6: OOP Book List Project
+<img src="https://saboya-dev-github.s3.amazonaws.com/Screen+Shot+2020-11-10+at+4.25.02+PM.png" width=720px/>
 
-### Project Link: https://saboyadev.github.io/Traversy-Media-Udemy-Course-Book-List-JS/. 
+### Project Link: https://saboyadev.github.io/Book-List-JS/. 
 
 A simple UI Application, with a goal to understand prototype constructors and classes.
 
